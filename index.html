@@ -107,20 +107,23 @@
         .author-block {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-top: 1.5rem;
-            padding: 1rem;
-            background: rgba(255,255,255,0.85);
-            backdrop-filter: blur(8px);
-            border-radius: 1rem;
-            border: 1px solid #e2e8f0;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(12px);
+            border-radius: 1.5rem;
+            border: 2px solid #3b82f6;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            max-width: 400px;
         }
         .author-photo {
-            width: 64px;
-            height: 64px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid #3b82f6;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         .author-info {
             display: flex;
@@ -128,13 +131,16 @@
             gap: 2px;
         }
         .author-name {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #0f172a;
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: #1e293b;
+            letter-spacing: 0.5px;
         }
         .author-role {
-            font-size: 0.85rem;
-            color: #64748b;
+            font-size: 1rem;
+            color: #3b82f6;
+            font-weight: 600;
+            letter-spacing: 0.3px;
         }
         .slide h1 {
             font-size: 2.4rem;
@@ -331,9 +337,9 @@
     <!-- СЛАЙД 1 – Титульный -->
     <div class="slide slide-hero" data-index="0">
         <div class="author-block">
-            <img class="author-photo" src="image/author.jpg" alt="Автор">
+            <img class="author-photo" src="image/Мое фото.jpg" alt="Автор">
             <div class="author-info">
-                <span class="author-name">Александр Ваничев</span>
+                <span class="author-name">Акван</span>
                 <span class="author-role">Спикер · НИУ ВШЭ</span>
             </div>
         </div>
@@ -657,7 +663,7 @@
     <div class="slide" data-index="14">
         <span class="badge">Финал</span>
         <h1>🙌 Благодарю за работу!</h1>
-        <p>Александр Ваничев / ваш спикер</p>
+        <p>Акван / ваш спикер</p>
         <p>Telegram: @milordalx | Канал: Код Интеллекта</p>
         <p>📌 Вопросы? Обсуждение метрик и бюджетов — в открытом микрофоне.</p>
         <div class="speech-note">
