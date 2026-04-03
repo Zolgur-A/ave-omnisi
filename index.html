@@ -370,7 +370,7 @@
             background: #0f172a;
             color: #e2e8f0;
             padding: calc(1rem * var(--scale));
-            padding-top: calc(3rem * var(--scale));
+            padding-top: calc(3.5rem * var(--scale));
             border-radius: 1rem;
             font-family: monospace;
             font-size: calc(0.85rem * var(--scale));
@@ -379,6 +379,7 @@
             max-height: 40vh;
             overflow-y: auto;
             line-height: 1.5;
+            box-sizing: border-box;
         }
         .copy-btn {
             position: absolute;
@@ -387,29 +388,32 @@
             background: #3b82f6;
             border: none;
             color: #ffffff;
-            font-size: calc(0.9rem * var(--scale));
-            font-weight: 600;
-            padding: 8px 18px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            padding: 8px 20px;
             border-radius: 8px;
             cursor: pointer;
-            transition: background 0.2s, transform 0.1s;
+            transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
             font-family: 'Segoe UI', Roboto, sans-serif;
-            z-index: 10;
-            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.5);
+            z-index: 100;
+            box-shadow: 0 3px 10px rgba(59, 130, 246, 0.6);
             letter-spacing: 0.3px;
+            pointer-events: all;
+            user-select: none;
         }
         .copy-btn:hover {
             background: #2563eb;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.7);
         }
         .copy-btn:active {
             transform: translateY(0);
+            box-shadow: 0 2px 6px rgba(59, 130, 246, 0.4);
         }
         .copy-btn.copied {
             background: #22c55e;
             color: white;
-            box-shadow: 0 2px 8px rgba(34, 197, 94, 0.5);
+            box-shadow: 0 3px 10px rgba(34, 197, 94, 0.6);
         }
         .results-icon {
             display: flex;
@@ -1111,25 +1115,59 @@
     });
     // Кнопки «Копировать» для промтов
     document.querySelectorAll('.prompt-box').forEach(box => {
+        // Оборачиваем в wrapper с position:relative
         const wrapper = document.createElement('div');
         wrapper.className = 'prompt-wrapper';
-        const btn = document.createElement('button');
-        btn.className = 'copy-btn';
-        btn.textContent = '📋 Копировать';
-        btn.addEventListener('click', () => {
-            navigator.clipboard.writeText(box.innerText.trim()).then(() => {
-                btn.textContent = '✅ Скопировано!';
-                btn.classList.add('copied');
-                setTimeout(() => {
-                    btn.textContent = '📋 Копировать';
-                    btn.classList.remove('copied');
-                }, 2000);
-            });
-        });
         box.parentNode.insertBefore(wrapper, box);
         wrapper.appendChild(box);
+
+        // Создаём кнопку и вставляем ПОСЛЕ box внутри wrapper
+        const btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.innerHTML = '📋 Копировать';
         wrapper.appendChild(btn);
+
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const text = box.innerText.trim();
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    btn.innerHTML = '✅ Скопировано!';
+                    btn.classList.add('copied');
+                    setTimeout(() => {
+                        btn.innerHTML = '📋 Копировать';
+                        btn.classList.remove('copied');
+                    }, 2000);
+                }).catch(() => fallbackCopy(text, btn));
+            } else {
+                fallbackCopy(text, btn);
+            }
+        });
     });
+
+    // Fallback для браузеров без Clipboard API
+    function fallbackCopy(text, btn) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        try {
+            document.execCommand('copy');
+            btn.innerHTML = '✅ Скопировано!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.innerHTML = '📋 Копировать';
+                btn.classList.remove('copied');
+            }, 2000);
+        } catch (err) {
+            btn.innerHTML = '❌ Ошибка';
+            setTimeout(() => { btn.innerHTML = '📋 Копировать'; }, 2000);
+        }
+        document.body.removeChild(ta);
+    }
 
     // Переключатель видимости «Речь спикера»
     document.querySelectorAll('.speech-note').forEach(note => {
