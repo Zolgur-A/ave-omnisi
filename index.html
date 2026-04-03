@@ -380,10 +380,11 @@
             overflow-y: auto;
             line-height: 1.5;
             box-sizing: border-box;
+            position: relative;
         }
         .copy-btn {
             position: absolute;
-            top: 10px;
+            top: 12px;
             right: 12px;
             background: #3b82f6;
             border: none;
@@ -1115,21 +1116,21 @@
     });
     // Кнопки «Копировать» для промтов
     document.querySelectorAll('.prompt-box').forEach(box => {
-        // Оборачиваем в wrapper с position:relative
-        const wrapper = document.createElement('div');
-        wrapper.className = 'prompt-wrapper';
-        box.parentNode.insertBefore(wrapper, box);
-        wrapper.appendChild(box);
-
-        // Создаём кнопку и вставляем ПОСЛЕ box внутри wrapper
+        // Кнопка вставляется ВНУТРЬ .prompt-box как первый дочерний элемент
         const btn = document.createElement('button');
         btn.className = 'copy-btn';
         btn.innerHTML = '📋 Копировать';
-        wrapper.appendChild(btn);
+        // Вставляем кнопку первым элементом внутри box
+        box.insertBefore(btn, box.firstChild);
 
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
-            const text = box.innerText.trim();
+            // Берём текст без текста самой кнопки
+            const text = Array.from(box.childNodes)
+                .filter(n => n !== btn)
+                .map(n => n.textContent)
+                .join('')
+                .trim();
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(text).then(() => {
                     btn.innerHTML = '✅ Скопировано!';
