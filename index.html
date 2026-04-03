@@ -271,8 +271,7 @@
             width: auto;
             object-fit: contain;
             border-radius: 1.2rem;
-            border: 4px solid #3b82f6;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
         }
         .card-compare {
             background: #f8fafc;
@@ -429,7 +428,6 @@
             .meme-large img {
                 max-height: 60vh;
                 min-height: 300px;
-                border-width: 3px;
             }
         }
         @media (max-width: 700px) {
@@ -646,20 +644,26 @@
     <div class="slide" data-index="5">
         <span class="badge">Теория · 3 мин</span>
         <h1>📈 5. Новые метрики эффективности</h1>
-        <div class="grid-2">
-            <div><strong>❌ Устарело:</strong> строки кода, часы в Jira, закрытые задачи.</div>
-            <div><strong>✅ Новые KPI:</strong></div>
-        </div>
-        <ul style="margin: 1rem 0 0 1.5rem;">
-            <li>⏱️ Время от идеи до рабочего прототипа</li>
-            <li>🔄 Количество итераций с ИИ на задачу</li>
-            <li>🧪 Покрытие тестами (объективный контроль)</li>
-            <li>💰 Стоимость API/токенов в месяц</li>
-            <li>🚀 Время онбординга новичка (качество документации)</li>
-        </ul>
-        <div class="meme-placeholder"><img src="image/manager-dashboard.png" alt="Менеджер и рабочая панель показателей"></div>
-        <div class="speech-note">
-            🎤 <strong>Речь:</strong> «Скажите честно: кто измеряет успех по "количеству строк кода"? В мире ИИ это бессмысленно, нейросеть напишет тысячу строк за минуту. Новые метрики — скорость превращения идеи в продукт и число итераций. Если вы три часа правите промт — проблема не в нейросети, а в контексте. А ещё важнее — тесты: они становятся главным свидетелем качества.»
+        <div class="slide2-container">
+            <div class="slide2-left">
+                <div class="grid-2">
+                    <div><strong>❌ Устарело:</strong> строки кода, часы в Jira, закрытые задачи.</div>
+                    <div><strong>✅ Новые KPI:</strong></div>
+                </div>
+                <ul style="margin: 1rem 0 0 1.5rem;">
+                    <li>⏱️ Время от идеи до рабочего прототипа</li>
+                    <li>🔄 Количество итераций с ИИ на задачу</li>
+                    <li>🧪 Покрытие тестами (объективный контроль)</li>
+                    <li>💰 Стоимость API/токенов в месяц</li>
+                    <li>🚀 Время онбординга новичка (качество документации)</li>
+                </ul>
+                <div class="speech-note">
+                    🎤 <strong>Речь:</strong> «Скажите честно: кто измеряет успех по "количеству строк кода"? В мире ИИ это бессмысленно, нейросеть напишет тысячу строк за минуту. Новые метрики — скорость превращения идеи в продукт и число итераций. Если вы три часа правите промт — проблема не в нейросети, а в контексте. А ещё важнее — тесты: они становятся главным свидетелем качества.»
+                </div>
+            </div>
+            <div class="slide2-right">
+                <div class="meme-placeholder meme-large"><img src="image/manager-dashboard.png" alt="Менеджер и рабочая панель показателей"></div>
+            </div>
         </div>
     </div>
 
