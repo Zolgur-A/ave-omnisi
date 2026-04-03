@@ -243,6 +243,36 @@
             gap: 2rem;
             margin: 1.5rem 0;
         }
+        .slide2-container {
+            display: flex;
+            gap: 3rem;
+            margin: 2rem 0;
+            align-items: flex-start;
+        }
+        .slide2-left {
+            flex: 0 0 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .slide2-right {
+            flex: 0 0 45%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .meme-large {
+            width: 100%;
+        }
+        .meme-large img {
+            max-height: 60vh;
+            max-width: 100%;
+            width: auto;
+            object-fit: contain;
+            border-radius: 1rem;
+            border: 2px solid #3b82f6;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
         .card-compare {
             background: #f8fafc;
             border-radius: 1.2rem;
@@ -384,6 +414,15 @@
             .toggle-speech-btn {
                 max-width: 80% !important;
             }
+            .slide2-container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .slide2-left,
+            .slide2-right {
+                flex: 0 0 100%;
+                width: 100%;
+            }
         }
         @media (max-width: 700px) {
             .slide { padding: 1.5rem 1rem; }
@@ -499,20 +538,24 @@
     <!-- СЛАЙД 2 – Как было раньше -->
     <div class="slide" data-index="1">
         <span class="badge">Часть 1. Теория · 5 мин</span>
-<h1>🧠 1. Как было раньше</h1>
-        <div class="grid-2">
-            <div class="card-compare yesterday">
-                <strong>🗣️ Вчера</strong>
-                <p>— «Сергей, помнишь логику скидок?»<br>— «Конечно, сделаю.»</p>
-                <p>📦 Контекст жил в головах людей.<br>💰 Бюджет: 80% зарплаты (аналитик+4дева+2теста).<br>📊 Метрики: строки кода, задачи, часы в Jira.</p>
+        <h1>🧠 1. Как было раньше</h1>
+        <div class="slide2-container">
+            <div class="slide2-left">
+                <div class="card-compare yesterday">
+                    <strong>🗣️ Вчера</strong>
+                    <p>— «Сергей, помнишь логику скидок?»<br>— «Конечно, сделаю.»</p>
+                    <p>📦 Контекст жил в головах людей.<br>💰 Бюджет: 80% зарплаты (аналитик+4дева+2теста).<br>📊 Метрики: строки кода, задачи, часы в Jira.</p>
+                </div>
+                <div class="card-compare today">
+                    <strong>🤖 А что сейчас?</strong>
+                    <p>— «ChatGPT, сделай как в прошлый раз!»<br>— «Я не помню прошлый раз. Опиши заново.»</p>
+                    <p>❗ У нейронки нет памяти. Документация — не «потом», а ТОПЛИВО.</p>
+                </div>
             </div>
-            <div class="card-compare today">
-                <strong>🤖 А что сейчас?</strong>
-                <p>— «ChatGPT, сделай как в прошлый раз!»<br>— «Я не помню прошлый раз. Опиши заново.»</p>
-                <p>❗ У нейронки нет памяти. Документация — не «потом», а ТОПЛИВО.</p>
+            <div class="slide2-right">
+                <div class="meme-placeholder meme-large"><img src="image/mem1.png" alt="Мем"></div>
             </div>
         </div>
-        <div class="meme-placeholder"><img src="image/mem1.png" alt="Мем"></div>
         <div class="speech-note">
             🎤 <strong>Речь спикера:</strong> «Друзья, давайте честно
         </div>
