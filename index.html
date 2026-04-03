@@ -258,11 +258,6 @@
         .slide2-right {
             flex: 0 0 45%;
             display: flex;
-            /* Временная рамка для видимости */
-            border: 3px solid #3b82f6;
-            border-radius: 1rem;
-            padding: 1rem;
-            background: rgba(59, 130, 246, 0.05);
             align-items: center;
             justify-content: center;
         }
@@ -597,18 +592,24 @@
     <div class="slide" data-index="3">
         <span class="badge">Теория · 4 мин</span>
         <h1>📚 3. Три слоя документации</h1>
-        <table>
-            <thead><tr><th>Слой</th><th>Для кого</th><th>Зачем</th></tr></thead>
-            <tbody>
-                <tr><td><strong>1. Для людей</strong></td><td>Команда, новички</td><td>Не запутаться, быстрый онбординг</td></tr>
-                <tr><td><strong>2. Для нейронки</strong></td><td>ChatGPT, Claude, Cursor</td><td>Генерирует то, что нужно, а не "своё"</td></tr>
-                <tr><td><strong>3. Для связи (shared state)</strong></td><td>Человек + нейронка</td><td>Не терять контекст между сессиями</td></tr>
-            </tbody>
-        </table>
-        <div class="meme-placeholder"><img src="image/document-three-people-robot.png" alt="Документ на троих и робот"></div>
-        <p>🔗 Глубокий материал: <a href="https://oleg.guru/redbook/ru/shared-state-and-files" target="_blank">shared state между ИИ и человеком</a></p>
-        <div class="speech-note">
-            🎤 <strong>Речь:</strong> «Документация — это не скучно, это нано-топливо. Первый слой — чтобы вы сами через месяц не забыли, зачем вам эта кнопка. Второй — чтобы нейронка не придумывала лишнего. Третий — это как общая тетрадь, где вы с ИИ ведёте общий дневник. Без этого нейросеть будет каждое утро знакомиться заново. А вы этого хотите? Нет!»
+        <div class="slide2-container">
+            <div class="slide2-left">
+                <table>
+                    <thead><tr><th>Слой</th><th>Для кого</th><th>Зачем</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>1. Для людей</strong></td><td>Команда, новички</td><td>Не запутаться, быстрый онбординг</td></tr>
+                        <tr><td><strong>2. Для нейронки</strong></td><td>ChatGPT, Claude, Cursor</td><td>Генерирует то, что нужно, а не "своё"</td></tr>
+                        <tr><td><strong>3. Для связи (shared state)</strong></td><td>Человек + нейронка</td><td>Не терять контекст между сессиями</td></tr>
+                    </tbody>
+                </table>
+                <p>🔗 Глубокий материал: <a href="https://oleg.guru/redbook/ru/shared-state-and-files" target="_blank">shared state между ИИ и человеком</a></p>
+                <div class="speech-note">
+                    🎤 <strong>Речь:</strong> «Документация — это не скучно, это нано-топливо. Первый слой — чтобы вы сами через месяц не забыли, зачем вам эта кнопка. Второй — чтобы нейронка не придумывала лишнего. Третий — это как общая тетрадь, где вы с ИИ ведёте общий дневник. Без этого нейросеть будет каждое утро знакомиться заново. А вы этого хотите? Нет!»
+                </div>
+            </div>
+            <div class="slide2-right">
+                <div class="meme-placeholder meme-large"><img src="image/document-three-people-robot.png" alt="Документ на троих и робот"></div>
+            </div>
         </div>
     </div>
 
