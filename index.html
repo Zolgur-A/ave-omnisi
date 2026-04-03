@@ -462,6 +462,25 @@
             .toggle-speech-btn {
                 max-width: 80% !important;
             }
+        }
+        .final-slide {
+            justify-content: center;
+            text-align: center;
+        }
+        .final-title {
+            font-size: calc(4rem * var(--scale)) !important;
+            font-weight: 900;
+            color: #0f2b4d;
+            margin: 1rem 0 2rem 0;
+            text-shadow:
+                3px 3px 6px rgba(255, 255, 255, 1),
+                -2px -2px 5px rgba(255, 255, 255, 0.9),
+                0 0 30px rgba(255, 255, 255, 0.8);
+            letter-spacing: 1px;
+            line-height: 1.1;
+            padding: 1rem 0;
+        }
+        @media (max-width: 1200px) {
             .slide2-container {
                 flex-direction: column;
                 gap: 2rem;
@@ -507,9 +526,17 @@
                 margin-left: auto !important;
                 margin-right: auto !important;
             }
+            .final-title {
+                font-size: calc(2.5rem * var(--scale)) !important;
+                margin: 0.5rem 0 1rem 0;
+            }
         }
         @media (max-height: 700px) {
             .slide { padding: 1.5rem 2rem; }
+            .final-title {
+                font-size: calc(2rem * var(--scale)) !important;
+                margin: 0.5rem 0 0.8rem 0;
+            }
             .meme-placeholder img { max-height: 20vh; }
             .meme-large img { max-height: 40vh; }
             .author-photo-large {
@@ -981,9 +1008,9 @@
     </div>
 
     <!-- СЛАЙД 15 – Благодарность -->
-    <div class="slide" data-index="14">
+    <div class="slide final-slide" data-index="14">
         <span class="badge">Финал</span>
-        <h1>🙌 Благодарю за работу!</h1>
+        <h1 class="final-title">🙌 Благодарю за работу!</h1>
         <p>Ваничев Александр / ваш спикер</p>
         <p>Почта: Akvanichev@gmail.com</p>
         <p>📌 Вопросы? Обсуждение метрик и бюджетов — в открытом микрофоне.</p>
